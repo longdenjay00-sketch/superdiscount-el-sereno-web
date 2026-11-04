@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Discount .99 &amp; Huntington Dr Commercial Strip // El Sereno</title>
+  <link rel="stylesheet" href="./src/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <span>🔥 EL SERENO PROUD &bull; 4892 HUNTINGTON DR S &bull; COMMUNITY DISCOUNT STORE &bull; OPEN 7 DAYS</span>
+    <span class="ig-link" onclick="openInstagramModal()">📸 @superdiscount.99</span>
+  </div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand-group">
+        <div class="badge-99">.99¢</div>
+        <div>
+          <h1 class="logo-title">SUPER DISCOUNT .99</h1>
+          <p class="logo-sub">&amp; HUNTINGTON DRIVE COMMERCIAL HUB &bull; EL SERENO 90032</p>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search household, snacks, meats, pan dulce...">
+      </div>
+
+      <div class="cart-trigger" onclick="toggleCart()">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" id="cart-count">0</span>
+        <span class="cart-total" id="cart-nav-total">$0.00</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <span class="hero-tag">EASTSIDE LOS ANGELES &bull; HUNTINGTON DRIVE STRIP</span>
+      <h2>EVERYTHING YOU NEED ON THE HUNTINGTON CORRIDOR.</h2>
+      <p>Direct digital storefront for Super Discount .99 and neighboring family-owned institutions in El Sereno. Real neighborhood pricing, daily inventory drops, zero corporate markup.</p>
+      
+      <div class="business-pills">
+        <button class="pill-btn active" onclick="filterCategory('all')">🏪 All Locations</button>
+        <button class="pill-btn" onclick="filterCategory('superdiscount')">🏷️ Super Discount .99</button>
+        <button class="pill-btn" onclick="filterCategory('carniceria')">🥩 El Sereno Meat Market</button>
+        <button class="pill-btn" onclick="filterCategory('panaderia')">🥖 Huntington Panadería</button>
+        <button class="pill-btn" onclick="filterCategory('hardware')">🔧 El Sereno Tools</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Storefront Grid -->
+  <main class="main-layout">
+    <div class="section-header">
+      <div>
+        <h3 id="current-filter-title">Live Commercial Inventory</h3>
+        <p class="section-sub">Real-time local stock available for in-store pickup &amp; delivery on Huntington Dr.</p>
+      </div>
+      <div class="sort-selector">
+        <label>Sort By:</label>
+        <select id="sort-select" onchange="sortProducts()">
+          <option value="featured">Featured First</option>
+          <option value="price-low">Price: Low to High (.99 Specials)</option>
+          <option value="price-high">Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="product-grid" id="product-grid">
+      <!-- Injected by JavaScript -->
+    </div>
+  </main>
+
+  <!-- Commercial Strip Directory Section -->
+  <section class="directory-section">
+    <div class="directory-container">
+      <h3>Huntington Drive Commercial Corridor Directory (El Sereno, CA 90032)</h3>
+      <div class="directory-cards">
+        <div class="dir-card">
+          <h4>Super Discount .99</h4>
+          <p class="dir-addr">📍 4892 Huntington Dr S, Los Angeles, CA 90032</p>
+          <p class="dir-desc">Cleaning chemicals, party pinatas, housewares, seasonal goods, phone chargers, daily value goods.</p>
+          <span class="dir-hours">Mon–Sun: 9:00 AM – 8:00 PM</span>
+        </div>
+
+        <div class="dir-card">
+          <h4>El Sereno Meat Market (Carnicería)</h4>
+          <p class="dir-addr">📍 4944 Huntington Dr S, Los Angeles, CA 90032</p>
+          <p class="dir-desc">Family-owned butcher shop staple. Marinated carne asada, fresh chorizo, queso fresco, and produce.</p>
+          <span class="dir-hours">Mon–Sat: 8:00 AM – 7:30 PM &bull; Sun: 8:00 AM – 6:00 PM</span>
+        </div>
+
+        <div class="dir-card">
+          <h4>El Sereno Panadería &amp; Cafe</h4>
+          <p class="dir-addr">📍 4850 Huntington Dr S, Los Angeles, CA 90032</p>
+          <p class="dir-desc">Freshly baked conchas, bolillos, puerquitos, and traditional Mexican pastries daily from 5:30 AM.</p>
+          <span class="dir-hours">Daily: 5:30 AM – 8:00 PM</span>
+        </div>
+
+        <div class="dir-card">
+          <h4>El Sereno Hardware &amp; Key Shop</h4>
+          <p class="dir-addr">📍 4780 Huntington Dr N, Los Angeles, CA 90032</p>
+          <p class="dir-desc">Trade supplies, pipe fittings, electrical boxes, fast key duplication, paint, and fasteners.</p>
+          <span class="dir-hours">Mon–Sat: 8:00 AM – 6:00 PM</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Huntington Dr Cart</h3>
+      <button class="close-cart" onclick="toggleCart()">&times;</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <!-- Injected by JavaScript -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">$0.00</span>
+      </div>
+      <div class="cart-row">
+        <span>LA County Sales Tax (9.5%)</span>
+        <span id="cart-tax">$0.00</span>
+      </div>
+      <div class="cart-row total">
+        <span>Total</span>
+        <span id="cart-grand-total">$0.00</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout()">Proceed to Local Pickup Order</button>
+    </div>
+  </div>
+  <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+  <!-- Instagram Live Simulator Modal -->
+  <div class="modal" id="ig-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <div class="ig-avatar">📸</div>
+          <div>
+            <strong>@superdiscount.99</strong>
+            <p style="font-size: 0.75rem; color: #64748b;">Super Discount 99 Cents Plus &bull; Official Instagram</p>
+          </div>
+        </div>
+        <button class="close-modal" onclick="closeInstagramModal()">&times;</button>
+      </div>
+      <div class="ig-feed-grid">
+        <div class="ig-post">
+          <div class="ig-post-img" style="background: linear-gradient(135deg, #f97316, #e11d48);">🏷️ NEW PALLET DROP</div>
+          <div class="ig-post-caption">🚨 Just unpacked 4 pallets of laundry essentials and cleaning supplies. Fabuloso, Clorox, Ariel at .99 specials! Pull up on Huntington Dr! #ElSereno #SuperDiscount99</div>
+        </div>
+        <div class="ig-post">
+          <div class="ig-post-img" style="background: linear-gradient(135deg, #10b981, #0284c7);">🎉 PARTY SUPPLIES</div>
+          <div class="ig-post-caption">Piñatas, festive paper goods, and candy bags fully stocked for the weekend fiestas. 4892 Huntington Dr S! 🎈</div>
+        </div>
+        <div class="ig-post">
+          <div class="ig-post-img" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">📱 TECH ACCESSORIES</div>
+          <div class="ig-post-caption">USB-C fast chargers, braided phone cables, and car mounts all under $4.99. Stop overpaying at the mall. 🔌</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Super Discount .99 &bull; Huntington Drive Commercial Collective &bull; El Sereno, Los Angeles, CA 90032</p>
+    <p style="margin-top: 0.4rem; opacity: 0.7; font-size: 0.8rem;">Open-Source Community Commerce Engine &bull; Vite &bull; Vercel Ready &bull; GitHub Pages CI Automated</p>
+  </footer>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
